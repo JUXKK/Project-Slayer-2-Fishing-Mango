@@ -13,12 +13,15 @@ No injection, no memory reading.
    bar stays on the fish until the minigame ends.
 4. **Auto Re-Cast** – starts over. Recasts by itself if nothing bites in 30s.
 
-## Get the exe
-- **Download:** GitHub → **Actions** → latest **Build exe** run → **Artifacts** →
-  `JUXK-PS2-exe` (a zip with `JUXK-PS2.exe` inside). Every push builds a new one.
-- **Or build it yourself** (needs [Python 3.10+](https://www.python.org/downloads/),
-  tick *Add to PATH*): double-click `build_exe.bat` → `dist\JUXK-PS2.exe`.
-- **Or run without an exe:** double-click `run.bat`.
+## Get it running (Windows)
+**Easiest:** go to the repo's **Releases** (right side of the GitHub page) →
+**JUXK PS2 (latest build)** → download `JUXK-PS2.exe` → double-click it.
+
+**From this folder:**
+| File | What it does |
+|---|---|
+| `1-SETUP.bat` | Double-click once. Installs Python if needed, then builds `JUXK-PS2.exe` in this folder. |
+| `2-LAUNCH.bat` | Double-click every time to open the macro. |
 
 Windows SmartScreen may warn because the exe isn't signed: *More info → Run anyway*.
 
@@ -35,7 +38,7 @@ Windows SmartScreen may warn because the exe isn't signed: *More info → Run an
    - **Save**.
 4. Click **Start Fish** or press **F1**. **F2** stops.
 
-Settings are saved to `config.json`.
+Settings are saved to `config.json` next to the exe.
 
 ## Tuning
 - Bar not detected → raise *Colour tolerance* (25 → 40) or re-pick the colours.

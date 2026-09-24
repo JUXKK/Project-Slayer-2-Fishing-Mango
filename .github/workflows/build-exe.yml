@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -22,3 +25,13 @@ jobs:
         with:
           name: JUXK-PS2-exe
           path: dist/JUXK-PS2.exe
+      - name: Publish to Releases (tag "latest")
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest dist/JUXK-PS2.exe \
+            --target "$GITHUB_SHA" --prerelease \
+            --title "JUXK PS2 (latest build)" \
+            --notes "Download JUXK-PS2.exe below and double-click it. Built from ${GITHUB_REF_NAME} @ ${GITHUB_SHA::7}."
