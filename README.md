@@ -4,14 +4,7 @@ Fishing overnight — **JUXK PS2** fishing macro for Project Slayer 2 (Roblox, W
 It only reads the screen (colour tracking) and presses the mouse, like a person would.
 No injection, no memory reading.
 
-```
- $ [ JUXK PS2 ] $
- [x] Auto Cast        [x] Rod Check
- [x] Tracking System  [x] Auto Re-Cast
- [ ] Anti-AFK         [x] Always On Top
-        ( Calibrate )
-      [  Start Fish  ]
-```
+![JUXK PS2 window](docs/ui.png)
 
 ## What it does
 1. **Rod Check** – waits until your fishing rod is held (checks one pixel you pick).
@@ -20,11 +13,19 @@ No injection, no memory reading.
    bar stays on the fish until the minigame ends.
 4. **Auto Re-Cast** – starts over. Recasts by itself if nothing bites in 30s.
 
+## Get the exe
+- **Download:** GitHub → **Actions** → latest **Build exe** run → **Artifacts** →
+  `JUXK-PS2-exe` (a zip with `JUXK-PS2.exe` inside). Every push builds a new one.
+- **Or build it yourself** (needs [Python 3.10+](https://www.python.org/downloads/),
+  tick *Add to PATH*): double-click `build_exe.bat` → `dist\JUXK-PS2.exe`.
+- **Or run without an exe:** double-click `run.bat`.
+
+Windows SmartScreen may warn because the exe isn't signed: *More info → Run anyway*.
+
 ## Setup
-1. Install [Python 3.10+](https://www.python.org/downloads/) (tick *Add to PATH*).
-2. Double-click `run.bat` (installs `numpy mss pynput` and opens the window).
-3. In Roblox, equip your rod and start fishing once so the reel bar is on screen.
-4. Click **Calibrate**:
+1. Open `JUXK-PS2.exe` (it saves `config.json` next to itself).
+2. In Roblox, equip your rod and start fishing once so the reel bar is on screen.
+3. Click **Calibrate**:
    - **Reel bar region → Select**: drag a box tightly around the reel bar.
    - **Fish colour → Pick**: hover the fish/target marker for 3 seconds.
    - **Your bar colour → Pick**: hover the bar you move for 3 seconds.
@@ -32,7 +33,7 @@ No injection, no memory reading.
      is held (e.g. the highlighted rod hotbar slot). Skip it and turn off Rod Check
      if you don't need it.
    - **Save**.
-5. Click **Start Fish** or press **F1**. **F2** stops.
+4. Click **Start Fish** or press **F1**. **F2** stops.
 
 Settings are saved to `config.json`.
 

@@ -1,10 +1,14 @@
-"""Settings for the fishing macro, saved to config.json next to main.py."""
+"""Settings for the fishing macro, saved to config.json next to main.py / the exe."""
 
 import json
+import sys
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-CONFIG_PATH = Path(__file__).resolve().parent.parent / "config.json"
+if getattr(sys, "frozen", False):   # built .exe: keep config beside the exe
+    CONFIG_PATH = Path(sys.executable).resolve().parent / "config.json"
+else:
+    CONFIG_PATH = Path(__file__).resolve().parent.parent / "config.json"
 
 
 @dataclass
